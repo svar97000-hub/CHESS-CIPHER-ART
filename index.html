@@ -1416,71 +1416,36 @@
     initControls();
     render();
   </script>
-  <a class="gumroad-button" href="https://svara09.gumroad.com/l/sbieti">Buy Now</a>
-  <button type="button" onclick="downloadPersonalizedArt()" style="padding:10px 18px;background:#1a73e8;color:#fff;border:none;border-radius:8px;cursor:pointer;">
-  Download My Artwork
-</button>
-
-<script>
-function downloadPersonalizedArt() {
-  const canvas = document.querySelector("canvas");
-  if (!canvas) {
-    alert("Generate your artwork first.");
-    return;
-  }
-  const link = document.createElement("a");
-  link.download = "chess-cipher-art.png";
-  link.href = canvas.toDataURL("image/png", 1.0);
-  link.click();
-}
-</script>
-  <script>
-function downloadPersonalizedArt() {
-  const canvas = document.querySelector("canvas");
-  if (!canvas) {
-    alert("Generate your artwork first.");
-    return;
-  }
-
-  if (window.goatcounter && typeof window.goatcounter.count === "function") {
-    window.goatcounter.count({
-      path: "artwork-download",
-      title: "Personalized Artwork Downloaded",
-      event: true
-    });
-  }
-
-  const link = document.createElement("a");
-  link.download = "chess-cipher-art.png";
-  link.href = canvas.toDataURL("image/png", 1.0);
-  link.click();
-}
-</script>
-
-<script>
-function downloadPersonalizedArt() {
-  const canvas = document.querySelector("canvas");
-  if (!canvas) {
-    alert("Generate your artwork first.");
-    return;
-  }
-
-  if (window.goatcounter && typeof window.goatcounter.count === "function") {
-    window.goatcounter.count({
-      path: "artwork-download",
-      title: "Personalized Artwork Downloaded",
-      event: true
-    });
-  }
-
-  const link = document.createElement("a");
-  link.download = "chess-cipher-art.png";
-  link.href = canvas.toDataURL("image/png", 1.0);
-  link.click();
-}
-</script>
-
-<script data-goatcounter="https://chesscipherart.goatcounter.com/count"
+  <script data-goatcounter="https://chesscipherart.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+
+<script>
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest("button, a");
+  if (!btn) return;
+  const label = (btn.textContent || "").trim();
+
+  if (label.includes("Export Print-Ready PNG")) {
+    if (window.goatcounter && typeof window.goatcounter.count === "function") {
+      window.goatcounter.count({
+        path: "export-png-2400x3000",
+        title: "Export Print-Ready PNG",
+        event: true,
+        no_session: true
+      });
+    }
+  } else if (label.includes("Download Vector SVG Blueprint")) {
+    if (window.goatcounter && typeof window.goatcounter.count === "function") {
+      window.goatcounter.count({
+        path: "download-svg-blueprint",
+        title: "Download Vector SVG Blueprint",
+        event: true,
+        no_session: true
+      });
+    }
+  }
+});
+</script> 
+
 </body>
 </html>
