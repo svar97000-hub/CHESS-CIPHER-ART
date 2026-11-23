@@ -1434,5 +1434,53 @@ function downloadPersonalizedArt() {
   link.click();
 }
 </script>
+  <script>
+function downloadPersonalizedArt() {
+  const canvas = document.querySelector("canvas");
+  if (!canvas) {
+    alert("Generate your artwork first.");
+    return;
+  }
+
+  if (window.goatcounter && typeof window.goatcounter.count === "function") {
+    window.goatcounter.count({
+      path: "artwork-download",
+      title: "Personalized Artwork Downloaded",
+      event: true
+    });
+  }
+
+  const link = document.createElement("a");
+  link.download = "chess-cipher-art.png";
+  link.href = canvas.toDataURL("image/png", 1.0);
+  link.click();
+}
+</script>
+
+<script>
+function downloadPersonalizedArt() {
+  const canvas = document.querySelector("canvas");
+  if (!canvas) {
+    alert("Generate your artwork first.");
+    return;
+  }
+
+  if (window.goatcounter && typeof window.goatcounter.count === "function") {
+    window.goatcounter.count({
+      path: "artwork-download",
+      title: "Personalized Artwork Downloaded",
+      event: true
+    });
+  }
+
+  const link = document.createElement("a");
+  link.download = "chess-cipher-art.png";
+  link.href = canvas.toDataURL("image/png", 1.0);
+  link.click();
+}
+</script>
+
+<script data-goatcounter="https://chesscipherart.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
