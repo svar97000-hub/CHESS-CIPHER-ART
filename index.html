@@ -1446,6 +1446,33 @@ document.addEventListener("click", function (e) {
   }
 });
 </script> 
+  <script data-goatcounter="https://chesscipherart.goatcounter.com/count"
+        data-goatcounter-no-session="1"
+        async src="//gc.zgo.at/count.js"></script>
+
+<script>
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest("button, a, [role='button']");
+  if (!btn) return;
+  const label = (btn.innerText || btn.textContent || "").toLowerCase();
+
+  if (!window.goatcounter || typeof window.goatcounter.count !== "function") return;
+
+  if (label.includes("png")) {
+    window.goatcounter.count({
+      path: "/export-png-2400x3000",
+      title: "Export Print-Ready PNG",
+      event: true
+    });
+  } else if (label.includes("svg")) {
+    window.goatcounter.count({
+      path: "/download-svg-blueprint",
+      title: "Download Vector SVG Blueprint",
+      event: true
+    });
+  }
+});
+</script>
 
 </body>
 </html>
